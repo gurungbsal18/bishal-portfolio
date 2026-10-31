@@ -12,6 +12,7 @@ export type Project = {
   contribution: string[];
   lens: string;
   scope: string;
+  image?: { src: string; alt: string; caption: string };
   link: { href: string; text: string } | null;
 };
 
@@ -68,6 +69,11 @@ export const projects: Project[] = [
   },
   {
     id: "alpine",
+    image: {
+      src: "/assets/project-images/Alpine-website.webp",
+      alt: "Alpine Club of Himalaya website shown on a laptop and phone, with mountain imagery and trekking navigation.",
+      caption: "Alpine Club of Himalaya · Desktop and mobile website",
+    },
     category: "TRAVEL · WEB EXPERIENCE",
     summary: "Giving adventure a clear starting point.",
     title: "Alpine Club of Himalaya",
@@ -88,7 +94,7 @@ export const projects: Project[] = [
     ],
     lens: "Balancing the inspiration of travel with clear navigation and a readable presentation of destinations and offerings.",
     scope:
-      "The visual is an editorial interpretation with original vector art. It is not a reproduction of the live website, and no conversion or booking results are claimed.",
+      "Project image supplied by Bishal, showing the desktop and mobile website presentation. No conversion or booking results are claimed.",
     link: {
       href: "https://alpineclubofhimalaya.com/",
       text: "Visit Alpine Club of Himalaya",
@@ -96,6 +102,11 @@ export const projects: Project[] = [
   },
   {
     id: "swift",
+    image: {
+      src: "/assets/project-images/swift-holidays.png",
+      alt: "Swift Holidays mobile UI concept showing bus search, departure listings, seat selection, payment choices and profile screens.",
+      caption: "Swift Holidays · Mobile app UI concept",
+    },
     category: "MOBILE · UI CONCEPT",
     summary: "Exploring travel, one screen at a time.",
     title: "Swift Holidays",
@@ -108,9 +119,9 @@ export const projects: Project[] = [
       "Created a mobile app UI concept.",
       "Explored the interface through a Figma mockup.",
     ],
-    lens: "A mobile canvas for exploring travel content and visual hierarchy. The portfolio illustration offers an editorial interpretation of that theme.",
+    lens: "A mobile canvas for travel search, departure listings, seat selection and payment choices, as shown in the supplied UI concept image.",
     scope:
-      "This is concept work. A launched app, engineering implementation, user testing or measured outcomes are not claimed. The original Figma file was not available for this portfolio build.",
+      "The supplied project image shows a mobile UI concept. A launched app, engineering implementation, user testing or measured outcomes are not claimed.",
     link: null,
   },
 ];

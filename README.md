@@ -61,4 +61,4 @@ Professional content is grounded in Bishal's supplied CV. No performance metrics
 
 The CV is included at `public/assets/Bishal_Gurung_CV.pdf` with Bishal's approval for public publication. Résumé links use `/assets/Bishal_Gurung_CV.pdf`.
 
-Project visuals are original React/CSS/vector illustrations, explicitly labelled as illustrations rather than screenshots of shipped products. Enterprise data is illustrative. Google Fonts is optional; system font fallbacks are included.
+Alpine and Swift use supplied project images from `public/assets/project-images/`. Both retain their full 4:3 composition on project cards and in project stories, with descriptive alt text and a full-size image link. Images use Next.js Image with `unoptimized` for compatibility with static export hosting. BhaiBahini and enterprise previews remain React/CSS illustrations; enterprise data is illustrative. Google Fonts is optional; system font fallbacks are included.

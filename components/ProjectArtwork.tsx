@@ -1,9 +1,29 @@
-import type { ProjectId } from "@/data/projects";
+import Image from "next/image";
+import { projects, type ProjectId } from "@/data/projects";
 
 type Props = { projectId: ProjectId; instance: "card" | "dialog" };
 
 export function ProjectArtwork({ projectId, instance }: Props) {
-  const prefix = `${projectId}-${instance}`;
+  const project = projects.find((item) => item.id === projectId);
+  if (project?.image) {
+    return (
+      <figure className="project-image">
+        <div className="project-visual project-screenshot">
+          <Image
+            src={project.image.src}
+            alt={project.image.alt}
+            width={1600}
+            height={1200}
+            unoptimized
+            sizes="(max-width: 760px) 100vw, 50vw"
+          />
+        </div>
+        {instance === "dialog" ? (
+          <figcaption>{project.image.caption}</figcaption>
+        ) : null}
+      </figure>
+    );
+  }
   switch (projectId) {
     case "bhaibahini":
       return (
@@ -128,120 +148,7 @@ export function ProjectArtwork({ projectId, instance }: Props) {
           </span>
         </div>
       );
-    case "alpine":
-      return (
-        <div className="project-visual alpine" aria-hidden="true">
-          <div className="visual-top">
-            <span>MADE FOR EXPLORATION.</span>
-            <span>03</span>
-          </div>
-          <div className="alpine-window">
-            <div className="alpine-nav">
-              <b>△ ALPINE CLUB</b>
-              <span>Discover &nbsp; Journeys &nbsp; About</span>
-              <span>↗</span>
-            </div>
-            <svg
-              className="mountains"
-              viewBox="0 0 700 400"
-              preserveAspectRatio="xMidYMid slice"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient id={`${prefix}-sky`} x2="0" y2="1">
-                  <stop stopColor="#9eaca5"></stop>
-                  <stop offset="1" stopColor="#dad5bd"></stop>
-                </linearGradient>
-                <linearGradient id={`${prefix}-peak`} x2=".7" y2="1">
-                  <stop stopColor="#d9d8cb"></stop>
-                  <stop offset="1" stopColor="#536d68"></stop>
-                </linearGradient>
-              </defs>
-              <path fill={`url(#${prefix}-sky)`} d="M0 0h700v400H0z"></path>
-              <circle cx="530" cy="85" r="35" fill="#e4ddbb"></circle>
-              <path
-                fill="#839990"
-                d="M-100 360 100 105l100 125L355 40l150 200L620 95l180 265z"
-              ></path>
-              <path
-                fill={`url(#${prefix}-peak)`}
-                d="m60 400 255-335L600 400Z"
-              ></path>
-              <path
-                fill="#f0ede0"
-                d="m315 65-90 119 61-26 29 20 27-44 70 48z"
-              ></path>
-              <path
-                fill="#385853"
-                d="m-80 400 180-145 140 145 226-145 285 145z"
-              ></path>
-              <path
-                fill="#203e39"
-                d="m-50 400 250-90 170 90 220-65 150 65z"
-              ></path>
-            </svg>
-            <div className="alpine-copy">
-              <span>THE HIMALAYAS ARE CALLING.</span>
-              <h3>
-                Go beyond
-                <br />
-                the ordinary.
-              </h3>
-              <span className="alpine-explore">
-                Explore the journey &nbsp; ↗
-              </span>
-            </div>
-          </div>
-          <span className="visual-caption">
-            EDITORIAL INTERPRETATION · ORIGINAL VECTOR ART
-          </span>
-        </div>
-      );
-    case "swift":
-      return (
-        <div className="project-visual swift" aria-hidden="true">
-          <div className="visual-top">
-            <span>A CHANGE OF SCENERY.</span>
-            <span>04</span>
-          </div>
-          <div className="swift-type" aria-hidden="true">
-            Go
-            <br />
-            <em>somewhere.</em>
-          </div>
-          <div className="phone">
-            <div className="phone-notch"></div>
-            <div className="phone-nav">
-              swift<span>✳</span>
-              <small>☰</small>
-            </div>
-            <span className="phone-hello">A new adventure awaits.</span>
-            <h3>
-              Where to
-              <br />
-              next?
-            </h3>
-            <div className="phone-search">⌕ &nbsp; Find your escape</div>
-            <div className="phone-scene">
-              <span>NEPAL</span>
-              <div className="phone-mountain"></div>
-              <div className="phone-destination">
-                <b>
-                  A little closer
-                  <br />
-                  to the mountains.
-                </b>
-                <span>↗</span>
-              </div>
-            </div>
-            <div className="phone-bottom">
-              ⌂ &nbsp; &nbsp; ⌕ &nbsp; &nbsp; ♡ &nbsp; &nbsp; ◉
-            </div>
-          </div>
-          <span className="visual-caption">
-            MOBILE UI CONCEPT · INTERFACE ILLUSTRATION
-          </span>
-        </div>
-      );
+    default:
+      return null;
   }
 }

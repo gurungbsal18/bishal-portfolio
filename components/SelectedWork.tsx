@@ -97,8 +97,8 @@ export function SelectedWork() {
         <div className="work-note">
           <span>SELECTED PROJECT STORIES</span>
           <p>
-            Visuals are portfolio illustrations, not screenshots of shipped
-            products. Open a project for verified scope and context.
+            Alpine and Swift show supplied project designs. BhaiBahini and
+            enterprise previews are illustrative. Open a project to explore.
           </p>
         </div>
       </section>
@@ -133,6 +133,16 @@ export function SelectedWork() {
             </div>
             <div className="story-art">
               <ProjectArtwork projectId={activeProject.id} instance="dialog" />
+              {activeProject.image ? (
+                <a
+                  className="text-link project-image-link"
+                  href={activeProject.image.src}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View full-size image <span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
             </div>
             <section className="story-section">
               <h3>The context</h3>
