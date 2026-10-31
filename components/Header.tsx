@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,7 @@ export function Header() {
         >
           Let’s talk <span>↗</span>
         </a>
+        <ThemeSwitcher />
       </nav>
     </header>
   );

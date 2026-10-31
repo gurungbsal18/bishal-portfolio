@@ -5,6 +5,35 @@ type Props = { projectId: ProjectId; instance: "card" | "dialog" };
 
 export function ProjectArtwork({ projectId, instance }: Props) {
   const project = projects.find((item) => item.id === projectId);
+  if (projectId === "bhaibahini" && instance === "card" && project?.image) {
+    return (
+      <figure className="project-image">
+        <div className="project-visual bhaibahini-cover">
+          <div className="bb-cover-heading" aria-hidden="true">
+            <span>01</span>
+          </div>
+          <div className="bb-orbit bb-orbit-one" aria-hidden="true" />
+          <div className="bb-orbit bb-orbit-two" aria-hidden="true" />
+          <span className="bb-star" aria-hidden="true">✳</span>
+          <div className="bb-browser">
+            <div className="bb-browser-chrome" aria-hidden="true">
+              <span className="bb-window-dots"><i /><i /><i /></span>
+              <span className="bb-address">BhaiBahini / Mentorship</span>
+              <span className="bb-window-action">↗</span>
+            </div>
+            <Image
+              src={project.image.src}
+              alt={project.image.alt}
+              width={project.image.width ?? 1902}
+              height={project.image.height ?? 940}
+              unoptimized
+              sizes="(max-width: 760px) 90vw, 45vw"
+            />
+          </div>
+        </div>
+      </figure>
+    );
+  }
   if (project?.image) {
     return (
       <figure className="project-image">
@@ -12,8 +41,8 @@ export function ProjectArtwork({ projectId, instance }: Props) {
           <Image
             src={project.image.src}
             alt={project.image.alt}
-            width={1600}
-            height={1200}
+            width={project.image.width ?? 1600}
+            height={project.image.height ?? 1200}
             unoptimized
             sizes="(max-width: 760px) 100vw, 50vw"
           />

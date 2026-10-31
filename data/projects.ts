@@ -12,13 +12,20 @@ export type Project = {
   contribution: string[];
   lens: string;
   scope: string;
-  image?: { src: string; alt: string; caption: string };
+  image?: { src: string; alt: string; caption: string; width?: number; height?: number };
   link: { href: string; text: string } | null;
 };
 
 export const projects: Project[] = [
   {
     id: "bhaibahini",
+    image: {
+      src: "/assets/project-images/bhaibahini-website.png",
+      alt: "BhaiBahini mentorship website with mentor and mentee sign-up options and a world map connecting Nepali professionals to Nepal.",
+      caption: "BhaiBahini · Mentorship platform website",
+      width: 1902,
+      height: 940,
+    },
     category: "PRODUCT DESIGN · UX ENGINEERING",
     summary: "Making mentorship feel more human.",
     title: "BhaiBahini",

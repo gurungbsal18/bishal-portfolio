@@ -97,8 +97,8 @@ export function SelectedWork() {
         <div className="work-note">
           <span>SELECTED PROJECT STORIES</span>
           <p>
-            Alpine and Swift show supplied project designs. BhaiBahini and
-            enterprise previews are illustrative. Open a project to explore.
+            BhaiBahini, Alpine and Swift show supplied project designs. The
+            enterprise preview is illustrative. Open a project to explore.
           </p>
         </div>
       </section>
@@ -116,9 +116,15 @@ export function SelectedWork() {
             className="close-dialog"
             type="button"
             aria-label="Close project story"
+            title="Close project story (Esc)"
             onClick={() => dialog.current?.close()}
           >
-            Close <span aria-hidden="true">×</span>
+            Close
+            <span className="close-dialog-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </span>
           </button>
         </div>
         {activeProject ? (
