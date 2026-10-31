@@ -97,8 +97,7 @@ export function SelectedWork() {
         <div className="work-note">
           <span>SELECTED PROJECT STORIES</span>
           <p>
-            BhaiBahini, Alpine and Swift show supplied project designs. The
-            enterprise preview is illustrative. Open a project to explore.
+            All project previews show supplied designs. Open a project to explore.
           </p>
         </div>
       </section>

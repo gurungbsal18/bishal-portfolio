@@ -51,6 +51,13 @@ export const projects: Project[] = [
   },
   {
     id: "timecard",
+    image: {
+      src: "/assets/project-images/timecard-project.png",
+      alt: "Timecard application showing a weekly timesheet table, date selection, benefits, and save and submit controls.",
+      caption: "Timecard · Enterprise timesheet interface",
+      width: 847,
+      height: 477,
+    },
     category: "ENTERPRISE UX · INTERFACE DESIGN",
     summary: "Bringing order to everyday workflows.",
     title: "Timecard & enterprise apps",
@@ -71,7 +78,7 @@ export const projects: Project[] = [
     ],
     lens: "Making dense, task-oriented interfaces legible, with a clear relationship between information, actions and review states.",
     scope:
-      "Client identities, production screens and business metrics are not presented. All names, hours and statuses in the visual are illustrative.",
+      "Project image supplied by Bishal, showing a timecard interface. Other enterprise applications are described at a high level; no business metrics are claimed.",
     link: null,
   },
   {

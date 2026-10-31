@@ -2155,6 +2155,26 @@ dialog::backdrop {
 .project-image-link {
   margin-top: 8px;
 }
+.time-window.time-screenshot {
+  display: block;
+  left: 50%;
+  top: 50%;
+  width: 88%;
+  max-width: calc(var(--project-visual-height) * 1.3);
+  height: auto;
+  aspect-ratio: 847 / 477;
+  overflow: hidden;
+  transform: translate(-50%, -42%) rotate(4deg);
+}
+.time-screenshot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project:is(:hover, :focus-visible) .time-window.time-screenshot {
+  transform: translate(-50%, -42%) rotate(2deg) translateY(-4px);
+}
 @media (prefers-reduced-motion: reduce) {
   .project:is(:hover, :focus-visible) .project-screenshot img {
     transform: none;

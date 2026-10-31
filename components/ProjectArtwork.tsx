@@ -34,6 +34,29 @@ export function ProjectArtwork({ projectId, instance }: Props) {
       </figure>
     );
   }
+  if (projectId === "timecard" && instance === "card" && project?.image) {
+    return (
+      <figure className="project-image">
+        <div className="project-visual enterprise">
+          <div className="visual-top" aria-hidden="true">
+            <span>CLARITY AT WORK.</span>
+            <span>02</span>
+          </div>
+          <div className="time-window time-screenshot">
+            <Image
+              src={project.image.src}
+              alt={project.image.alt}
+              width={project.image.width ?? 847}
+              height={project.image.height ?? 477}
+              unoptimized
+              sizes="(max-width: 760px) 90vw, 45vw"
+            />
+          </div>
+          <span className="visual-caption" aria-hidden="true">ENTERPRISE TIMESHEET INTERFACE</span>
+        </div>
+      </figure>
+    );
+  }
   if (project?.image) {
     return (
       <figure className="project-image">
