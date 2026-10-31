@@ -1,46 +1,19 @@
 # Bishal Gurung — Portfolio
 
-Responsive personal portfolio for Bishal Gurung, Lead UX Engineer. Built with HTML, CSS and native JavaScript, with no runtime dependencies or compilation step.
+A responsive, buildless portfolio with native JavaScript, CSS and HTML. No dependency installation or compilation is needed. The deployed website is served from `dist/`.
 
-## Run locally
+## Local preview
 
-Install Node.js 18 or later, then run:
+Run `node serve.mjs`, then open http://localhost:4173. The server binds only to loopback. To deploy with another static host, use `dist` as the output directory with no build command.
 
-```sh
-npm start
-```
+## Content
 
-Open http://localhost:4173. You can also run `node serve.mjs` directly. The preview server binds only to loopback.
+Content is grounded in the original Bishal_Gurung_CV.pdf attachment, recovered from the referenced conversation. The CV is included as a downloadable asset. LinkedIn returned an automated-access error; the previous portfolio URL and the portfolio listed in the CV were inaccessible during research. No claims were imported from inaccessible pages.
 
-## Project structure
+Project visuals are original HTML/CSS/vector illustrations, explicitly labelled as illustrations. Case studies distinguish verified contributions from design interpretation, concept status and unavailable outcomes. Enterprise visuals use illustrative data and no private client identities. Career date overlaps are preserved from the CV.
 
-- `dist/index.html` — portfolio sections, navigation and project illustrations.
-- `dist/styles.css` — dark editorial theme, responsive layouts and reduced-motion support.
-- `dist/app.js` — project story dialogs, mobile navigation and contact controls.
-- `dist/assets/` — résumé PDF, favicon and social preview artwork.
-- `serve.mjs` — local static preview server.
+Project stories are maintained in `dist/app.js`. Main sections are in `dist/index.html`, with responsive styles in `dist/styles.css`. Motion respects `prefers-reduced-motion`. Google Fonts is optional; local system fonts provide a fallback.
 
-## Deployment
+## Hosting
 
-Deploy the `dist` directory on any static host. No install or build command is needed. For Vercel or Netlify, select the generic/static framework and set the output directory to `dist`.
-
-Hosted preview: https://bishal-gurung-ux-engineer.bsal18.chatgpt.site/ (private by default).
-
-## Résumé
-
-The CV PDF is included at `dist/assets/Bishal_Gurung_CV.pdf` with Bishal's approval for public publication. Résumé links use this local asset, so they work on any static deployment without requiring access to the private hosted preview.
-
-## Content and visuals
-
-Professional content is grounded in Bishal's supplied CV. Project stories distinguish verified contributions from design interpretation and concept work. No performance metrics, testimonials or business outcomes were invented.
-
-Project visuals are original HTML/CSS/vector illustrations, explicitly labelled as illustrations rather than screenshots of shipped products. Enterprise interface data is illustrative.
-
-Career date overlaps are preserved from the CV. LinkedIn and the previous portfolio were inaccessible during source research, so no claims were imported from those pages.
-
-Google Fonts is optional; system font fallbacks are included.
-
-## Validation
-
-Checked at 320px, 390px, tablet and desktop widths, with no horizontal overflow. Project dialogs, keyboard dismissal and focus restoration, mobile navigation, résumé delivery and email copying were verified in the browser. Local asset paths and JavaScript syntax were checked.
-
+Sites identity is retained in `.openai/hosting.json`. New Sites are private by default; changing the audience is a separate action. The same `dist` folder can be deployed publicly on Vercel, Netlify or another static host.
