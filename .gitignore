@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.openai/
+.DS_Store
+Thumbs.db
+*.log
+
+# Keep personal résumé out of the public repository.
+dist/assets/Bishal_Gurung_CV.pdf
+
