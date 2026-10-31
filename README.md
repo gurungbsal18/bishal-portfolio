@@ -17,7 +17,7 @@ Open http://localhost:4173. You can also run `node serve.mjs` directly. The prev
 - `dist/index.html` — portfolio sections, navigation and project illustrations.
 - `dist/styles.css` — dark editorial theme, responsive layouts and reduced-motion support.
 - `dist/app.js` — project story dialogs, mobile navigation and contact controls.
-- `dist/assets/` — favicon and social preview artwork.
+- `dist/assets/` — résumé PDF, favicon and social preview artwork.
 - `serve.mjs` — local static preview server.
 
 ## Deployment
@@ -26,9 +26,9 @@ Deploy the `dist` directory on any static host. No install or build command is n
 
 Hosted preview: https://bishal-gurung-ux-engineer.bsal18.chatgpt.site/ (private by default).
 
-## Résumé privacy
+## Résumé
 
-The CV PDF is excluded from this public repository. Résumé links point to the existing private hosted copy and require the site owner’s access. To host a CV publicly later, add a PDF under `dist/assets/` and update the résumé links in `dist/index.html` only after approving public disclosure.
+The CV PDF is included at `dist/assets/Bishal_Gurung_CV.pdf` with Bishal's approval for public publication. Résumé links use this local asset, so they work on any static deployment without requiring access to the private hosted preview.
 
 ## Content and visuals
 
