@@ -1,6 +1,25 @@
-"use strict";
-const stories = {
-  bhaibahini: {
+export type ProjectId = "bhaibahini" | "timecard" | "alpine" | "swift";
+
+export type Project = {
+  id: ProjectId;
+  title: string;
+  category: string;
+  summary: string;
+  label: string;
+  lede: string;
+  tags: string[];
+  context: string;
+  contribution: string[];
+  lens: string;
+  scope: string;
+  link: { href: string; text: string } | null;
+};
+
+export const projects: Project[] = [
+  {
+    id: "bhaibahini",
+    category: "PRODUCT DESIGN · UX ENGINEERING",
+    summary: "Making mentorship feel more human.",
     title: "BhaiBahini",
     label: "MENTORSHIP PLATFORM",
     lede: "Connecting a multi-role product through thoughtful, consistent user journeys.",
@@ -22,7 +41,10 @@ const stories = {
       "The CV documents UX design and collaboration on this project at XylonTech. Public usage figures and measured business outcomes have not been supplied.",
     link: null,
   },
-  timecard: {
+  {
+    id: "timecard",
+    category: "ENTERPRISE UX · INTERFACE DESIGN",
+    summary: "Bringing order to everyday workflows.",
     title: "Timecard & enterprise apps",
     label: "ENTERPRISE WORKFLOWS",
     lede: "Making operational interfaces easier to navigate, review and use.",
@@ -44,7 +66,10 @@ const stories = {
       "Client identities, production screens and business metrics are not presented. All names, hours and statuses in the visual are illustrative.",
     link: null,
   },
-  alpine: {
+  {
+    id: "alpine",
+    category: "TRAVEL · WEB EXPERIENCE",
+    summary: "Giving adventure a clear starting point.",
     title: "Alpine Club of Himalaya",
     label: "TRAVEL WEB EXPERIENCE",
     lede: "Helping people find their way into a travel experience.",
@@ -69,7 +94,10 @@ const stories = {
       text: "Visit Alpine Club of Himalaya",
     },
   },
-  swift: {
+  {
+    id: "swift",
+    category: "MOBILE · UI CONCEPT",
+    summary: "Exploring travel, one screen at a time.",
     title: "Swift Holidays",
     label: "MOBILE UI CONCEPT",
     lede: "A travel experience explored through mobile interface design.",
@@ -85,83 +113,4 @@ const stories = {
       "This is concept work. A launched app, engineering implementation, user testing or measured outcomes are not claimed. The original Figma file was not available for this portfolio build.",
     link: null,
   },
-};
-const nav = document.querySelector("#navigation");
-const menu = document.querySelector(".menu-toggle");
-function closeMenu() {
-  nav.classList.remove("open");
-  menu.setAttribute("aria-expanded", "false");
-  menu.setAttribute("aria-label", "Open navigation");
-}
-menu.addEventListener("click", () => {
-  const open = menu.getAttribute("aria-expanded") !== "true";
-  nav.classList.toggle("open", open);
-  menu.setAttribute("aria-expanded", String(open));
-  menu.setAttribute(
-    "aria-label",
-    open ? "Close navigation" : "Open navigation",
-  );
-});
-nav
-  .querySelectorAll("a")
-  .forEach((a) => a.addEventListener("click", closeMenu));
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeMenu();
-});
-const dialog = document.querySelector("#project-dialog");
-let lastProject;
-document.querySelectorAll("[data-project]").forEach((button) =>
-  button.addEventListener("click", () => {
-    const story = stories[button.dataset.project];
-    lastProject = button;
-    const art = button.querySelector(".project-visual").cloneNode(true);
-    art.setAttribute("aria-hidden", "true");
-    art.querySelectorAll("[id]").forEach((n) => {
-      const old = n.id;
-      const next = old + "-dialog";
-      art
-        .querySelectorAll(`[fill="url(#${old})"]`)
-        .forEach((p) => p.setAttribute("fill", `url(#${next})`));
-      n.id = next;
-    });
-    document.querySelector("#dialog-content").innerHTML =
-      `<article class="story"><span class="eyebrow">${story.label}</span><h2 id="dialog-title">${story.title}</h2><p class="story-lede">${story.lede}</p><div class="story-tags">${story.tags.map((tag) => `<span>${tag}</span>`).join("")}</div><div class="story-art"></div><section class="story-section"><h3>The context</h3><p>${story.context}</p></section><section class="story-section"><h3>My contribution</h3><ul>${story.contribution.map((item) => `<li>${item}</li>`).join("")}</ul></section><section class="story-section"><h3>The design lens</h3><p>${story.lens}</p></section><div class="story-note">${story.scope}</div><div class="story-links">${story.link ? `<a class="text-link" href="${story.link.href}" target="_blank" rel="noopener">${story.link.text} ↗</a>` : ""}<a class="text-link" href="mailto:gurungbsal18@gmail.com?subject=${encodeURIComponent("Let’s talk about " + story.title)}">Discuss this project ↗</a></div></article>`;
-    document.querySelector(".story-art").append(art);
-    dialog.showModal();
-    dialog.scrollTop = 0;
-    document.body.classList.add("no-scroll");
-    document.querySelector(".close-dialog").focus();
-  }),
-);
-function closeStory() {
-  dialog.close();
-}
-document.querySelector(".close-dialog").addEventListener("click", closeStory);
-dialog.addEventListener("click", (e) => {
-  if (e.target === dialog) {
-    const r = dialog.getBoundingClientRect();
-    if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      closeStory();
-  }
-});
-dialog.addEventListener("close", () => {
-  document.body.classList.remove("no-scroll");
-  lastProject?.focus({ preventScroll: true });
-});
-document.querySelector(".copy-email").addEventListener("click", async () => {
-  const status = document.querySelector(".copy-status");
-  try {
-    await navigator.clipboard.writeText("gurungbsal18@gmail.com");
-    status.textContent = "Email copied.";
-  } catch {
-    status.textContent = "Copy: gurungbsal18@gmail.com";
-  }
-  setTimeout(() => {
-    status.textContent = "";
-  }, 6000);
-});
+];
